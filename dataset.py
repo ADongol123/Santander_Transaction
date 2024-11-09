@@ -6,7 +6,7 @@ from math import ceil
 
 
 def get_data():
-    train_data = pd.read_csv("data/train.csv")
+    train_data = pd.read_csv("new_train.csv")
     y = train_data["target"]
     X = train_data.drop(["ID_code","target"], axis=1)
     # Converting both X and y to tensors
@@ -16,7 +16,7 @@ def get_data():
     train_ds, val_ds = random_split(ds,[int(0.8 * len(ds)),ceil(0.2 * len(ds))])
 
 
-    test_data = pd.read_csv("data/test.csv")
+    test_data = pd.read_csv("new_test.csv")
     test_ids = test_data["ID_code"]
     X = test_data.drop(["ID_code"], axis=1)
 

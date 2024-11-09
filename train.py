@@ -40,7 +40,7 @@ class NN(nn.Module):
 
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-model = NN(input_size=200,hidden_dim=16).to(DEVICE)
+model = NN(input_size=400,hidden_dim=16).to(DEVICE)
 optimizer = optim.Adam(model.parameters(),lr=3e-4, weight_decay=1e-5)
 loss_fn = nn.BCELoss()
 
