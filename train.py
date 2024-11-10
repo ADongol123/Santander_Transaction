@@ -27,7 +27,6 @@ class NN(nn.Module):
         # )
 
     def forward(self,x):
-        print(f"The value of x :{x.shape}")
         BATCH_SIZE = x.shape[0]
         x = self.bn(x)
         # curr x shape: (BATCH_SIZE , 200)
@@ -40,7 +39,8 @@ class NN(nn.Module):
 
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-model = NN(input_size=400,hidden_dim=16).to(DEVICE)
+model = NN(input_size=201,hidden_dim=16).to(DEVICE)
+
 optimizer = optim.Adam(model.parameters(),lr=3e-4, weight_decay=1e-5)
 loss_fn = nn.BCELoss()
 
